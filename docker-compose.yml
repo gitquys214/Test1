@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlcontainer
+    hostname: sqlcontainer
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Abc@123456789"
+    ports:
+      - "51433:1433"
+    volumes:
+      - my-volume-1:/var/opt/mssql
+
+volumes:
+  my-volume-1:
